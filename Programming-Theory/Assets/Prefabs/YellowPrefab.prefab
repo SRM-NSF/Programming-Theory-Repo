@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4922726660312481278}
   - component: {fileID: 5875994070227290232}
   - component: {fileID: 3954320345568764040}
+  - component: {fileID: 1398024693}
   m_Layer: 0
   m_Name: YellowPrefab
   m_TagString: Untagged
@@ -113,3 +114,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1398024693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481099752381010971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927dd0821c6764c40b5c23247046f10c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  ballRb: {fileID: 0}
+  speed: 0
+  jumpHeight: 0
+  onGround: 0

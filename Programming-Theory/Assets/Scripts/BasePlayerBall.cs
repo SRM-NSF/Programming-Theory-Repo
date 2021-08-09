@@ -8,29 +8,43 @@ public class BasePlayerBall : MonoBehaviour
     public Rigidbody ballRb;
     public float speed;
     public float jumpHeight;
-    private float verticalInput;
-    private float horizontalInput;
+    protected float verticalInput;
+    protected float horizontalInput;
     public bool onGround = false;
 
-    void CameraFollow()
+    protected void CameraFollow()
     {
         //Abstraction
         mainCamera.transform.position = new Vector3(transform.position.x, (transform.position.y + 10), (transform.position.z - 1));
     }
 
-    public virtual void Moving()
+    protected virtual void SetParameters()
+    {
+        //abstraction
+        speed = 0;
+        jumpHeight = 0;
+        ballRb = GetComponent<Rigidbody>();
+        mainCamera = Camera.main;
+    }
+
+    protected void Moving()
     {
         //Abstraction
-        speed = 0;
         verticalInput = Input.GetAxis("Vertical");
         horizontalInput = Input.GetAxis("Horizontal");
         ballRb.AddForce(Vector3.forward * speed * verticalInput);
         ballRb.AddForce(Vector3.right * speed * horizontalInput);
     }
-   
+
+    protected void Jumping()
+    {
+        ballRb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+        onGround = false;
+    }
+
     void Awake()
     {
-        ballRb = GetComponent<Rigidbody>();
+           SetParameters();
     }
 
     // Update is called once per frame
@@ -41,8 +55,7 @@ public class BasePlayerBall : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && onGround)
         {
-            ballRb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
-            onGround = false;
+            Jumping();
         }
     }
 
