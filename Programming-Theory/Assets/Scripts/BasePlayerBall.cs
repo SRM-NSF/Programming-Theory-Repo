@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class BasePlayerBall : MonoBehaviour
 {
-    public Camera mainCamera;
-    public Rigidbody ballRb;
-    public float speed;
-    public float jumpHeight;
+    public Camera mainCamera { get; protected set; } //Encapsulation
+    public Rigidbody ballRb { get; protected set; } //Encapsulation
+    public float speed { get; protected set; } //Encapsulation
+    public float jumpHeight { get; protected set; } //Encapsulation
     protected float verticalInput;
     protected float horizontalInput;
     public bool onGround = false;

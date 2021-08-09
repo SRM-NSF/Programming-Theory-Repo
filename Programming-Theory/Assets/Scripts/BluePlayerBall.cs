@@ -11,6 +11,7 @@ public class BluePlayerBall : BasePlayerBall //Inheritance
         jumpHeight = 2;
         ballRb = GetComponent<Rigidbody>();
         mainCamera = Camera.main;
+
     }
     // Start is called before the first frame update
     void Awake()
